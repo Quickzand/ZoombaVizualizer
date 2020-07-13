@@ -1,0 +1,94 @@
+body.dark {
+  background-image: url("images/BackgroundDark.png");
+  background-position: center;
+  background-repeat: none;
+  background-size: cover;
+  color: white;
+}
+
+body {
+  background-image: url("images/BackgroundLight.png");
+  background-position: center;
+  background-repeat: none;
+  background-size: cover;
+  transition: background 0.5s;
+  padding: 0px;
+  margin: 0;
+  color: black;
+  height: 100vh;
+  overflow: hidden;
+  font-family: roboto;
+  color: #b3b3b3;
+}
+
+body.dark>canvas {
+  background: #b3b3b3;
+}
+
+canvas {
+  background: white;
+  width: 1000px;
+  height: 1000px;
+  position: relative;
+  right: -50%;
+  top: 50%;
+  transform: translate(-50%, -100%);
+}
+
+#testingIndicator {
+  width: 100%;
+  text-align: center;
+  color: #a90004;
+  font-size: 50px;
+  animation-name: testingIndicator;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes testingIndicator {
+  0% {
+    color: #a90004;
+  }
+
+  50% {
+    color: #fc000a;
+  }
+
+  100% {
+    color: #a90004;
+  }
+}
+
+#incomingActions {
+  background: #a59c7a;
+  overflow-y: scroll;
+  width: 250px;
+  height: 1000px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+#incomingActions::-webkit-scrollbar {
+  width: 0px;
+}
+
+#actionsHeader {
+  width: 100%;
+  text-align: center;
+  font-size: 50px;
+  background: #7f7f7f;
+  color: black;
+}
+
+#incomingActions .action:nth-child(2) {
+  background: #5aa94e;
+}
+
+.action {
+  width: 100%;
+  border-bottom: solid black 3px;
+  font-size: 35px;
+  color: white;
+  padding: 10px;
+}

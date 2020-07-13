@@ -1,0 +1,37 @@
+{
+  "name": "Vizualizer",
+  "version": "1.0.0",
+  "description": "Zoomba Vizualizer",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "postinstall": "electron-builder install-app-deps",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder",
+    "release": "electron-builder"
+  },
+  "author": "Quickzand",
+  "devDependencies": {
+    "electron-builder": "^22.7.0",
+    "electron": "^9.0.4"
+  },
+  "dependencies": {
+    "electron-packager": "^14.2.1",
+    "jquery": "^3.5.1"
+  },
+  "build": {
+    "appId": "com.Vizualizer.app",
+    "files": [
+      "**/*",
+      "config.json",
+      "package.json"
+    ],
+    "extraFiles": [
+      "config.json"
+    ],
+    "directories": {
+   "buildResources": "resources"
+  },
+ "publish": null
+  }
+}

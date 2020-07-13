@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <!-- https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP -->
+  <script>
+    var $ = require("jquery");
+  </script>
+  <link rel="stylesheet" href="styles.css">
+  <title>Vizualizer</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+
+<body id="body">
+
+  <div id="controls">
+    <button onclick="config.darkMode = !config.darkMode; updateConfig()">Toggle Dark Mode</button>
+    <button onclick="moveForward = !moveForward">FORWARD</button>
+    <button onclick="turnLeft = !turnLeft ">TURN LEFT</button>
+    <button onclick="turnRight = !turnRight">TURN RIGHT</button>
+    <button onclick="generateRandomNode()">GENERATE RANDOM NODE</button>
+    Path To Zoomba: <input type="text" id="zoombaPathInput" />
+    <button onclick="updateConfig(); refreshPage()">UPDATE</button>
+    <button onclick="config.testingMode = !config.testingMode; updateConfig()">TOGGLE TESTING MODE</button>
+  </div>
+  <div id="incomingActions">
+    <div id="actionsHeader">
+      Actions:
+    </div>
+    <div class="action">
+      turn(50)
+    </div>
+    <div class="action">
+      turn(50)
+    </div>
+    <div class="action">
+      turn(50)
+    </div>
+  </div>
+  <canvas id="myCanvas" width="1000" height="1000"></canvas>
+
+  <img src="images/Zoomba.png" alt="test" id="zoombaImg">
+  <div id="testingIndicator">
+    TESTING MODE ENABLED
+  </div>
+
+  <!-- You can also require other files to run in this process -->
+  <script src="./renderer.js"></script>
+  <script src="configLoader.js"></script>
+  <script src="canvasController.js"></script>
+
+
+
+</body>
+
+</html>
