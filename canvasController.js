@@ -168,6 +168,7 @@ function preformCycle() {
       zoomba.x = zoombaPositionData.x;
       zoomba.y = canvasH - zoombaPositionData.y;
       zoomba.rotation = zoomba.correctRotation(zoombaPositionData.rotation);
+      zoomba.visualDistance = zoombaData.visualDistance;
       generateDestinationNode()
     }
 
