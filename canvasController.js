@@ -1,3 +1,7 @@
+const {
+  exec
+} = require('child_process');
+
 var c = document.getElementById("myCanvas");
 var ctx = c.getContext("2d");
 
@@ -77,6 +81,8 @@ zoomba = {
   }
 }
 
+
+
 function setActionList(actionList) {
   var paras = document.getElementsByClassName('action');
   var actionListContainer = document.getElementById("incomingActions")
@@ -106,6 +112,12 @@ function drawRandomNode() {
   ctx.fill()
 }
 
+function drawPathPoints(x, y) {
+  ctx.beginPath()
+  ctx.arc(x, canvasH - y, 1, 0, 2 * Math.PI)
+  ctx.fill()
+}
+
 
 function writeZoombaJson() {
   fs.writeFileSync(zoombaStatsPath, JSON.stringify(zoombaData))
@@ -120,6 +132,21 @@ function drawPathfinding() {
     ctx.lineTo(zoombaPathData.path[i].end[0], canvasH - zoombaPathData.path[i].end[1]);
     ctx.stroke();
   }
+}
+
+function pathfind() {
+  console.log("Pathfinding...")
+  document.getElementById("pathfindButton").className = "inProgress"
+  document.getElementById("pathfindButton").innerHTML = "Pathfinding..."
+  exec('cd ' + zoombaPath + "; python3 pathfinder.py", (err, stdout, stderr) => {
+    if (err) {
+      //some err occurred
+      console.error(err)
+    } else {
+      document.getElementById("pathfindButton").className = ""
+      document.getElementById("pathfindButton").innerHTML = "Pathfinder"
+    }
+  })
 }
 
 function preformCycle() {
@@ -158,6 +185,14 @@ function preformCycle() {
     zoombaPathData = JSON.parse(rawZoombaPathfindingData);
 
 
+    //Setting Up Pathfinding Data
+    zoombaPathPointsDataPath = zoombaPath + "/pathPoints.json"
+    rawZoombaPathPointsData = fs.readFileSync(zoombaPathPointsDataPath);
+    zoombaPathPointsData = JSON.parse(rawZoombaPathPointsData);
+
+    zoombaPathPointsData.points.forEach(function(point) {
+      drawPathPoints(point[0], point[1]);
+    })
 
 
     //Updating Position Data

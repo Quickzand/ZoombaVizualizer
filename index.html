@@ -16,13 +16,10 @@
 
   <div id="controls">
     <button onclick="config.darkMode = !config.darkMode; updateConfig()">Toggle Dark Mode</button>
-    <button onclick="moveForward = !moveForward">FORWARD</button>
-    <button onclick="turnLeft = !turnLeft ">TURN LEFT</button>
-    <button onclick="turnRight = !turnRight">TURN RIGHT</button>
-    <button onclick="generateRandomNode()">GENERATE RANDOM NODE</button>
-    Path To Zoomba: <input type="text" id="zoombaPathInput" />
+    <button onclick="pathfind()" id="pathfindButton">Pathfinder</button>
+    <button onclick="generateRandomNode()">Generate Random Destination</button>
+    <div>Path To Zoomba: <input type="text" id="zoombaPathInput" /></div>
     <button onclick="updateConfig(); refreshPage()">UPDATE</button>
-    <button onclick="config.testingMode = !config.testingMode; updateConfig()">TOGGLE TESTING MODE</button>
   </div>
   <div id="incomingActions">
     <div id="actionsHeader">
