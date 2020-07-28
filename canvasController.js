@@ -149,6 +149,12 @@ function pathfind() {
   })
 }
 
+function addAction() {
+  var newAction = document.getElementById("newAction").value;
+  zoombaData.actions.push(newAction)
+  writeZoombaJson();
+}
+
 function preformCycle() {
 
   try {
