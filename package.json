@@ -13,7 +13,7 @@
   "author": "Quickzand",
   "devDependencies": {
     "electron-builder": "^22.7.0",
-    "electron": "^9.0.4"
+    "electron": "^18.3.7"
   },
   "dependencies": {
     "electron-packager": "^14.2.1",
